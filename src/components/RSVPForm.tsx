@@ -1,0 +1,170 @@
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import { useForm } from 'react-hook-form';
+import { Send } from 'lucide-react';
+import { toast } from 'sonner';
+
+interface RSVPFormData {
+  name: string;
+  email: string;
+  guests: string;
+  attendance: 'yes' | 'no';
+  dietaryRestrictions: string;
+}
+
+export function RSVPForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<RSVPFormData>();
+
+  const onSubmit = async (data: RSVPFormData) => {
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    console.log('RSVP Data:', data);
+    toast.success('Thank you! Your RSVP has been received.');
+    reset();
+    setIsSubmitting(false);
+  };
+
+  return (
+    <motion.form
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      onSubmit={handleSubmit(onSubmit)}
+      className="max-w-2xl mx-auto bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 shadow-xl border-2 border-[#D4AF37]/30 relative"
+    >
+      {/* Decorative Corners */}
+      <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-[#D4AF37]" />
+      <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-[#D4AF37]" />
+      <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-[#D4AF37]" />
+      <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-[#D4AF37]" />
+
+      <div className="space-y-6">
+        {/* Name Field */}
+        <div>
+          <label className="block text-sm font-serif text-gray-700 mb-2">
+            Full Name *
+          </label>
+          <input
+            {...register('name', { required: 'Name is required' })}
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition-colors bg-white"
+            placeholder="Enter your name"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          )}
+        </div>
+
+        {/* Email Field */}
+        <div>
+          <label className="block text-sm font-serif text-gray-700 mb-2">
+            Email Address *
+          </label>
+          <input
+            {...register('email', {
+              required: 'Email is required',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Invalid email address'
+              }
+            })}
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition-colors bg-white"
+            placeholder="your@email.com"
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
+        </div>
+
+        {/* Number of Guests */}
+        <div>
+          <label className="block text-sm font-serif text-gray-700 mb-2">
+            Number of Guests *
+          </label>
+          <select
+            {...register('guests', { required: 'Please select number of guests' })}
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition-colors bg-white"
+          >
+            <option value="">Select...</option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5+">5+ Guests</option>
+          </select>
+          {errors.guests && (
+            <p className="text-red-500 text-sm mt-1">{errors.guests.message}</p>
+          )}
+        </div>
+
+        {/* Attendance */}
+        <div>
+          <label className="block text-sm font-serif text-gray-700 mb-3">
+            Will you be attending? *
+          </label>
+          <div className="flex gap-4">
+            <label className="flex-1 relative">
+              <input
+                {...register('attendance', { required: 'Please select an option' })}
+                type="radio"
+                value="yes"
+                className="peer sr-only"
+              />
+              <div className="px-6 py-3 rounded-lg border-2 border-gray-200 text-center cursor-pointer peer-checked:border-[#D4AF37] peer-checked:bg-[#D4AF37]/10 transition-all">
+                <span className="font-serif">Joyfully Accept</span>
+              </div>
+            </label>
+            <label className="flex-1 relative">
+              <input
+                {...register('attendance', { required: 'Please select an option' })}
+                type="radio"
+                value="no"
+                className="peer sr-only"
+              />
+              <div className="px-6 py-3 rounded-lg border-2 border-gray-200 text-center cursor-pointer peer-checked:border-[#D4AF37] peer-checked:bg-[#D4AF37]/10 transition-all">
+                <span className="font-serif">Regretfully Decline</span>
+              </div>
+            </label>
+          </div>
+          {errors.attendance && (
+            <p className="text-red-500 text-sm mt-1">{errors.attendance.message}</p>
+          )}
+        </div>
+
+        {/* Dietary Restrictions */}
+        <div>
+          <label className="block text-sm font-serif text-gray-700 mb-2">
+            Dietary Restrictions or Special Requests
+          </label>
+          <textarea
+            {...register('dietaryRestrictions')}
+            rows={3}
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#D4AF37] focus:outline-none transition-colors resize-none bg-white"
+            placeholder="Let us know if you have any dietary restrictions..."
+          />
+        </div>
+
+        {/* Submit Button */}
+        <motion.button
+          type="submit"
+          disabled={isSubmitting}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-lg font-serif text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          {isSubmitting ? (
+            <span>Sending...</span>
+          ) : (
+            <>
+              <Send className="w-5 h-5" />
+              <span>Send RSVP</span>
+            </>
+          )}
+        </motion.button>
+      </div>
+    </motion.form>
+  );
+}
