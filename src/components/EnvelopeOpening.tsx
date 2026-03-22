@@ -746,6 +746,15 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           opacity: 0.9;
         }
 
+        .seal-letters {
+          font-family: "Great Vibes", cursive;
+          font-size: 38px;
+          color: #8c6a25;
+          text-shadow: 0px 1px 1px rgba(255,255,255,0.4), 0px -1px 2px rgba(80,50,10,0.5);
+          opacity: 0.9;
+          line-height: 1;
+        }
+
         .thread {
           position: absolute;
           height: 1.5px;
@@ -1151,8 +1160,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
                 <div className="sleeve-shine" />
                 <div className="sleeve-edge" />
                 <div className="sleeve-content">
-                  <div className="sleeve-names">D & S</div>
-                  <div className="sleeve-tagline">Our Wedding Day</div>
+                  <div className="sleeve-names">Our Wedding Day</div>
                 </div>
               </div>
 
@@ -1162,12 +1170,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
                 aria-label="Open invitation"
               >
                 <div className="seal-inner">
-                  <svg className="seal-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 21v-8" />
-                    <path d="M12 13c-2.5-3-6-3-6-3s3.5-.5 6 3c2.5-3.5 6-3 6-3s-3.5.5-6 3" />
-                    <path d="M12 17c-2-2-4.5-2-4.5-2s2.5-.5 4.5 2c2-2.5 4.5-2 4.5-2s-2.5.5-4.5 2" />
-                    <path d="M12 10c0-4 3-7 3-7s-3 1-3 5c0-4-3-7-3-7s3 1 3 5" />
-                  </svg>
+                  <div className="seal-letters">DS</div>
                 </div>
               </button>
 
