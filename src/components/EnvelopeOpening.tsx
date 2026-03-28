@@ -702,10 +702,10 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
         .wax-seal {
           position: absolute;
           top: 50%;
-          left: -20px;
+          left: -8px;
           transform: translateY(-50%) scale(${opened ? 0.7 : 1});
-          width: 90px;
-          height: 90px;
+          width: 62px;
+          height: 62px;
           border-radius: 999px;
           border: 1px solid rgba(255, 230, 150, 0.5);
           background:
@@ -755,6 +755,21 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           background: radial-gradient(circle at 28% 22%, rgba(255,255,255,0.2), transparent 34%);
           mix-blend-mode: screen;
           pointer-events: none;
+        }
+
+        .seal-decor-image {
+          position: absolute;
+          left: -58px;
+          top: 50%;
+          width: 220px;
+          height: 360px;
+          object-fit: contain;
+          pointer-events: none;
+          z-index: 5;
+          opacity: ${opened ? 0 : 0.96};
+          transition: opacity 0.45s ease;
+          filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+          transform: translateY(-50%) rotate(14deg);
         }
 
         .seal-inner {
@@ -807,10 +822,10 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
 
         .flower-cluster {
           position: absolute;
-          left: 10px;
-          top: 36%;
-          width: 80px;
-          height: 250px;
+          left: -16px;
+          top: 28%;
+          width: 160px;
+          height: 370px;
           z-index: 4;
           opacity: ${opened ? 0 : 0.96};
           transition: opacity 0.45s ease;
@@ -823,7 +838,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           height: 100%;
           object-fit: contain;
           filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4)) contrast(1.1) brightness(0.9);
-          transform: translateY(-80px) rotate(15deg);
+          transform: translateY(-102px) rotate(15deg) scale(1.36);
         }
 
         .flower-bundle-fallback {
@@ -963,9 +978,9 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           }
 
           .wax-seal {
-            width: 84px;
-            height: 84px;
-            left: -14px;
+            width: 56px;
+            height: 56px;
+            left: -8px;
           }
 
           .seal-inner {
@@ -978,9 +993,20 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           }
 
           .flower-cluster {
-            right: -22px;
-            width: 92px;
-            height: 190px;
+            right: -36px;
+            width: 146px;
+            height: 286px;
+          }
+
+          .real-flowers-img {
+            transform: translateY(-90px) rotate(15deg) scale(1.42);
+          }
+
+          .seal-decor-image {
+            left: -42px;
+            top: 50%;
+            width: 178px;
+            height: 288px;
           }
 
           .invitation-card {
@@ -1085,7 +1111,21 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
             <div className="glow-behind-envelope" />
 
             {/* Envelope */}
-            <div className="envelope-wrapper">
+            <div
+              className="envelope-wrapper"
+              role="button"
+              tabIndex={opened ? -1 : 0}
+              aria-label="Open invitation"
+              onClick={() => {
+                if (!opened) setOpened(true);
+              }}
+              onKeyDown={(e) => {
+                if (!opened && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  setOpened(true);
+                }
+              }}
+            >
               <div className="envelope-shadow" />
 
               {threads.map((t, i) => (
@@ -1103,8 +1143,8 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
 
               <div className="flower-cluster">
                 <img
-                  src="/dried-flowers.png"
-                  alt="Dried botanical flowers"
+                  src="/sea.png"
+                  alt="Decorative motif"
                   className="real-flowers-img"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -1224,32 +1264,14 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
                 </div>
               </div>
 
-              <button
-                className="wax-seal"
-                onClick={() => setOpened(true)}
-                aria-label="Open invitation"
-              >
-                <img
-                  src="/11.png"
-                  alt="Dried flower"
-                  style={{
-                    position: "absolute",
-                    bottom: "60%",
-                    left: "50%",
-                    transform: "translateX(-50%) rotate(15deg)",
-                    height: "140px",
-                    objectFit: "contain",
-                    pointerEvents: "none",
-                    filter: "drop-shadow(2px 4px 6px rgba(0,0,0,0.3))",
-                    zIndex: -1
-                  }}
-                />
-                <div className="seal-inner">
-                  <div className="seal-letters">DS</div>
-                </div>
-              </button>
+              <img
+                src="/sea.png"
+                alt=""
+                className="seal-decor-image"
+                aria-hidden="true"
+              />
 
-              <div className="click-hint">Click the seal to open</div>
+              <div className="click-hint">Click to open invitation</div>
             </div>
           </div>
         </div>
