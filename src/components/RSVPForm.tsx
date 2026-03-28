@@ -15,17 +15,38 @@ interface RSVPFormData {
 export function RSVPForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<RSVPFormData>();
+  const scriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL as string | undefined;
 
   const onSubmit = async (data: RSVPFormData) => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      if (!scriptUrl) {
+        throw new Error('Google Apps Script URL is not configured.');
+      }
 
-    console.log('RSVP Data:', data);
-    toast.success('Thank you! Your RSVP has been received.');
-    reset();
-    setIsSubmitting(false);
+      const payload = new FormData();
+      payload.append('sheet', 'RSVP');
+      payload.append('name', data.name);
+      payload.append('email', data.email);
+      payload.append('guests', data.guests);
+      payload.append('attendance', data.attendance);
+      payload.append('dietaryRestrictions', data.dietaryRestrictions || '');
+
+      await fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload,
+      });
+
+      toast.success('Thank you! Your RSVP has been received.');
+      reset();
+    } catch (error) {
+      console.error('RSVP submit failed:', error);
+      toast.error('Could not send RSVP. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

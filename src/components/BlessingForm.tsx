@@ -12,14 +12,35 @@ interface BlessingData {
 export function BlessingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BlessingData>();
+  const scriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL as string | undefined;
 
   const onSubmit = async (data: BlessingData) => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log('Blessing:', data);
-    toast.success('Your beautiful blessing has been shared!');
-    reset();
-    setIsSubmitting(false);
+
+    try {
+      if (!scriptUrl) {
+        throw new Error('Google Apps Script URL is not configured.');
+      }
+
+      const payload = new FormData();
+      payload.append('sheet', 'WISH');
+      payload.append('name', data.name);
+      payload.append('message', data.message);
+
+      await fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload,
+      });
+
+      toast.success('Your beautiful blessing has been shared!');
+      reset();
+    } catch (error) {
+      console.error('Wishes submit failed:', error);
+      toast.error('Could not send your wishes. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
