@@ -567,16 +567,6 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           color: rgba(92, 41, 117, 0.9);
         }
 
-        .bottom-floral-line {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 170px;
-          opacity: 0.9;
-          pointer-events: none;
-        }
-
         .envelope-sleeve {
           position: absolute;
           top: 0;
@@ -760,7 +750,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
         .seal-decor-image {
           position: absolute;
           left: -58px;
-          top: 50%;
+          top: 47%;
           width: 220px;
           height: 360px;
           object-fit: contain;
@@ -1004,7 +994,7 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
 
           .seal-decor-image {
             left: -42px;
-            top: 50%;
+            top: 48%;
             width: 178px;
             height: 288px;
           }
@@ -1193,65 +1183,6 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
                     <br />
                     Magalegoda, Veyangoda
                   </div>
-
-                  <svg
-                    className="bottom-floral-line"
-                    viewBox="0 0 500 180"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M36 160C65 148 76 130 88 105C99 82 106 65 118 48"
-                      stroke="#A38D7B"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M118 48C132 61 140 73 145 92"
-                      stroke="#BDAA96"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M118 48C102 55 90 64 78 78"
-                      stroke="#BDAA96"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="118" cy="48" r="10" fill="#E9D7D2" />
-                    <circle cx="146" cy="93" r="6" fill="#D6E1F1" />
-                    <circle cx="79" cy="79" r="5" fill="#EFDCC6" />
-
-                    <path
-                      d="M464 160C435 146 424 128 412 103C401 82 392 61 380 42"
-                      stroke="#A38D7B"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M380 42C366 56 357 69 352 88"
-                      stroke="#BDAA96"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M380 42C396 50 410 60 423 75"
-                      stroke="#BDAA96"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="380" cy="42" r="10" fill="#E9D7D2" />
-                    <circle cx="351" cy="89" r="6" fill="#D6E1F1" />
-                    <circle cx="423" cy="75" r="5" fill="#EFDCC6" />
-
-                    <path
-                      d="M180 165C210 150 225 138 250 112C275 138 290 150 320 165"
-                      stroke="#D1BEAC"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="250" cy="112" r="8" fill="#E6CEC8" />
-                  </svg>
                 </div>
               </div>
 
