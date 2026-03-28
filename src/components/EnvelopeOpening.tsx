@@ -517,9 +517,20 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
         .card-title {
           font-family: "Great Vibes", cursive;
           font-size: 58px;
-          line-height: 1;
+          line-height: 0.92;
           color: #4a2060;
           margin: 0;
+        }
+
+        .card-title-line {
+          display: block;
+        }
+
+        .card-title-amp {
+          display: block;
+          font-size: 0.78em;
+          line-height: 0.95;
+          margin: 4px 0;
         }
 
         .card-subtitle {
@@ -1034,9 +1045,18 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
             font-size: 42px;
           }
 
+          .card-title-amp {
+            margin: 2px 0;
+          }
+
           .card-subtitle {
             font-size: 16px;
             max-width: 230px;
+            margin: 12px 0 14px;
+          }
+
+          .card-divider {
+            margin-bottom: 12px;
           }
 
           .card-day {
@@ -1044,13 +1064,15 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
           }
 
           .card-venue {
-            font-size: 11px;
-            line-height: 1.65;
-            letter-spacing: 0.08em;
-            max-width: 220px;
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: 0.04em;
+            max-width: 180px;
             margin: 0 auto;
             white-space: normal;
-            overflow-wrap: anywhere;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            text-transform: none;
           }
 
           .invitation-site {
@@ -1175,7 +1197,11 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
                   <img src="/111.png" alt="" className="card-corner-image top-left" aria-hidden="true" />
                   <img src="/111.png" alt="" className="card-corner-image bottom-right" aria-hidden="true" />
                   <div className="card-kicker">Promise Of Love</div>
-                  <h2 className="card-title">Dinuka & Supuni</h2>
+                  <h2 className="card-title">
+                    <span className="card-title-line">Dinuka</span>
+                    <span className="card-title-amp">&</span>
+                    <span className="card-title-line">Supuni</span>
+                  </h2>
 
                   <div className="card-subtitle">
                     Request the honour of your presence as they unite in marriage
