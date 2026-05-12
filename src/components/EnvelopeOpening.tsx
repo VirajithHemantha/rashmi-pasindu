@@ -416,9 +416,9 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
               </div>
 
               <h1 className="text-names">
-                Samadhi
+                Rashmi
                 <span className="text-ampersand">&</span>
-                Madhawa
+                Pasindu
               </h1>
 
               <div className="divider">
@@ -429,9 +429,9 @@ export function EnvelopeOpening({ onComplete, onMusicStart }: { onComplete: () =
 
               <div className="text-details">
                 Request the honour of your presence<br />
-                <span className="text-date">Saturday 19 September 2026 At 3:30 PM</span>
-                <span className="text-church">St. Antony's Church</span><br />
-                Kongodamulla, Katana
+                <span className="text-date">Thursday 28 May 2026 At 10:00 AM</span>
+                <span className="text-church">Crystal Ballroom</span><br />
+                Hotel Royal Grand Paradise - Kelaniya
               </div>
             </div>
           </div>

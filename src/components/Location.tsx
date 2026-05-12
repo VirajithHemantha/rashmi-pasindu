@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 import { MapPin, Navigation, Compass, Map } from 'lucide-react';
 
 export const Location: React.FC = () => {
-  const venueAddress = "Senuri Grand Castello, Divulapitiya";
-  const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15822.464624388344!2d80.0328!3d7.2289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNyAxMyczMy4wIk4gODDCsDAxJzU4LjEiRQ!5e0!3m2!1sen!2slk!4v1711000000000!5m2!1sen!2slk`;
-  const liveLocationUrl = "https://www.google.com/maps/search/Senuri+Grand+Castello+Divulapitiya";
+  const venueAddress = "Hotel Royal Grand Paradise, Kelaniya";
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.362635950346!2d79.92806067520442!3d6.966481518002677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae257ece8369435%3A0xecc2507dfbe1770f!2sHotel%20Royal%20Grand%20Paradise!5e0!3m2!1sen!2slk!4v1747105711674!5m2!1sen!2slk";
+  const liveLocationUrl = "https://maps.app.goo.gl/bTPJzTrTVJVkqfsr6";
 
   return (
     <div className="max-w-[85rem] mx-auto px-6 relative py-12">
@@ -45,11 +45,11 @@ export const Location: React.FC = () => {
                   <MapPin className="text-brand-beige-deep w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-2xl font-serif text-stone-800 mb-1">Senuri Grand Castello</p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-stone-400 leading-relaxed mb-6">Divulapitiya</p>
+                  <p className="text-2xl font-serif text-stone-800 mb-1">Crystal Ballroom</p>
+                  <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-stone-400 leading-relaxed mb-6">Hotel Royal Grand Paradise - Kelaniya</p>
                   
                   <p className="text-stone-500/90 italic font-serif text-lg leading-relaxed max-w-sm mb-10 pl-4 border-l-[1.5px] border-brand-beige/40">
-                    "A serene and elegant setting where we will begin our new chapter together."
+                    "A grand and elegant setting where we will begin our new chapter together."
                   </p>
 
                   <a
@@ -85,7 +85,7 @@ export const Location: React.FC = () => {
             <div className="absolute inset-0 bg-brand-beige/10 mix-blend-multiply pointer-events-none z-20 group-hover/map:opacity-0 transition-opacity duration-1000" />
             
             <iframe
-              title="Senuri Grand Castello Location"
+              title="Hotel Royal Grand Paradise Location"
               src={mapUrl}
               width="100%"
               height="100%"
