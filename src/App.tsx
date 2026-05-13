@@ -117,10 +117,24 @@ export default function App() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-beige/10 blur-[80px] rounded-full pointer-events-none" />
         <Heart className="w-6 h-6 mx-auto mb-6 text-brand-beige-deep fill-brand-beige/20" />
         <p className="font-display text-4xl sm:text-5xl text-stone-800 mb-2">Rashmi & Pasindu</p>
-        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] font-sans text-stone-400 font-semibold block mb-8">
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] font-sans text-stone-400 font-semibold block mb-12">
           May 28, 2026
         </span>
 
+        <div className="flex flex-col items-center gap-3 relative z-10">
+          <div className="w-12 h-[1px] bg-brand-beige/30 mb-2" />
+          <p className="text-[10px] sm:text-[11px] text-stone-400 font-sans tracking-[0.3em] uppercase">
+            Design by <span className="text-brand-beige-deep font-bold">invitemint</span>
+          </p>
+          <a 
+            href="https://wa.me/94707819074" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[10px] sm:text-[11px] text-stone-400 hover:text-brand-beige-deep transition-all duration-300 font-sans tracking-[0.2em]"
+          >
+            +94 70 781 9074
+          </a>
+        </div>
       </footer>
     </div>
   );

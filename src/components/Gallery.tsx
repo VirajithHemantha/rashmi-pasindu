@@ -6,9 +6,9 @@ const images = [
   { id: 1, url: '/p/WhatsApp Image 2026-05-13 at 03.03.52 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop', title: 'The Beginning' },
   { id: 2, url: '/p/WhatsApp Image 2026-05-13 at 03.03.52.jpeg', fallback: 'https://images.unsplash.com/photo-1522673607200-164d1f624698?q=80&w=800&auto=format&fit=crop', title: 'Our Journey' },
   { id: 3, url: '/p/WhatsApp Image 2026-05-13 at 03.03.53.jpeg', fallback: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop', title: 'A Thousand Words' },
-  { id: 4, url: '/p/WhatsApp Image 2026-05-13 at 03.03.52 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', title: 'Endless Love' },
-  { id: 5, url: '/p/WhatsApp Image 2026-05-13 at 03.03.52.jpeg', fallback: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop', title: 'Cherished Moments' },
-  { id: 6, url: '/p/WhatsApp Image 2026-05-13 at 03.03.53.jpeg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop', title: 'Together Forever' },
+  { id: 4, url: '/p/WhatsApp Image 2026-05-13 at 13.15.49 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop', title: 'Endless Love' },
+  { id: 5, url: '/p/WhatsApp Image 2026-05-13 at 13.15.49.jpeg', fallback: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop', title: 'Cherished Moments' },
+  { id: 6, url: '/p/WhatsApp Image 2026-05-13 at 13.15.50.jpeg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop', title: 'Together Forever' },
 ];
 
 export const Gallery: React.FC = () => {
